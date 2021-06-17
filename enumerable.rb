@@ -1,6 +1,3 @@
-# frozen_string_literal: true
-
-# rubocop:disable Style/Documentation
 module Enumerable
   def my_each(&block)
     return to_enum(:my_each) unless block_given?
@@ -18,4 +15,3 @@ module Enumerable
     self
   end
 end
-# rubocop:enable Style/Documentation
