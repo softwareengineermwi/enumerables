@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Style/Documentation
 module Enumerable
   def my_each(&block)
     return to_enum unless block_given?
@@ -27,6 +28,7 @@ module Enumerable
     array
   end
 end
+# rubocop:enable Style/Documentation
 
 def multiply_els(array)
   array.my_inject(1) { |index, result| result * index }

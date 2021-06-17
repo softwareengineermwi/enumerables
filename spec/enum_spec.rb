@@ -4,7 +4,7 @@
 require './enumerable'
 
 describe Enumerable do
-  array = %w[Mwila Elisha Taro Chawanzi Alick Munsa]
+  array = %w[Mwila Elisha Taro Chawanzi Alick]
   hash = { min: 1, max: 10 }
 
   describe 'my_each' do
