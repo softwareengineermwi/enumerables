@@ -10,7 +10,7 @@ describe Enumerable do
   describe 'my_each' do
     context 'if !block' do
       it 'returns enum' do
-        expect(arr.my_each).to be_an Enumerator
+        expect(array.my_each).to be_an(Enumerator)
       end
     end
 
@@ -18,7 +18,7 @@ describe Enumerable do
       context 'when self is an array' do
         it 'yields item' do
           arr = array.my_each { |friend| friend }
-          expect(arr).to eq(%w[Mwila Elisha Taro Chawanzi Alick Munsa])
+          expect(arr).to eq(%w[Mwila Elisha Taro Chawanzi Alick])
         end
 
         context 'when self is a hash' do
@@ -32,7 +32,7 @@ describe Enumerable do
         context 'when self is a range' do
           it 'yields items in that range' do
             arr = array[3..-1].my_each { |item| item }
-            expect(arr).to eq(%w[Alick Munsa])
+            expect(arr).to eq(%w[Chawanzi Alick])
           end
         end
       end
@@ -65,7 +65,7 @@ describe Enumerable do
         it 'yields items in that range' do
           arr = []
           array[3..-1].my_each_with_index { |item, index| arr.push("#{index}: #{item}") }
-          expect(arr).to eq(['0: Alick', '1: Munsa'])
+          expect(arr).to eq(['0: Chawanzi', '1: Alick'])
         end
       end
     end

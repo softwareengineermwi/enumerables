@@ -3,33 +3,19 @@
 # rubocop:disable Style/Documentation
 module Enumerable
   def my_each(&block)
-    return to_enum unless block_given?
+    return to_enum(:my_each) unless block_given?
 
-    each(&block)
+    to_a.each(&block)
+    self
   end
 
   def my_each_with_index
-    return to_enum unless block_given?
+    return to_enum(:my_each_with_index) unless block_given?
 
-    i = 0
-    my_each do |ele|
-      yield ele, i
-      i += 1
+    (0...to_a.length).each do |i|
+      yield(to_a[i], i)
     end
-  end
-
-  def my_select
-    return to_enum unless block_given?
-
-    array = []
-    my_each do |i|
-      array.push(i) if yield i
-    end
-    array
+    self
   end
 end
 # rubocop:enable Style/Documentation
-
-def multiply_els(array)
-  array.my_inject(1) { |index, result| result * index }
-end
