@@ -14,4 +14,14 @@ module Enumerable
     end
     self
   end
+
+  def my_select
+    return enum_for unless block_given
+
+    arr = []
+    my_each do |i|
+      arr.push(i) if yield i
+    end
+    arr
+  end
 end
