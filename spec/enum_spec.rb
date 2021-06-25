@@ -80,7 +80,7 @@ describe Enumerable do
         it 'yields selected items' do
           arr = []
           array.my_select { |friend| arr.push(friend) if friend != 'Brian' }
-          expect(arr).to eq(%w[Sharon Leo Leila Arun])
+          expect(arr).to eq(%w[Mwila Elisha Taro Chawanzi Alick])
         end
       end
 
@@ -88,15 +88,15 @@ describe Enumerable do
         it 'yields selected items with their index' do
           result = []
           hash.my_select { |k, v| result.push(k, v) if v > 4 }
-          expect(result).to eq([:max, 5])
+          expect(result).to eq([:max, 10])
         end
       end
 
       context 'when self is a range' do
         it 'yields selected items within that range' do
           arr = []
-          array[3..-1].my_select { |friend| arr.push(friend) if friend != 'Brian' }
-          expect(arr).to eq(['Arun'])
+          array[3..-1].my_select { |friend| arr.push(friend) if friend != 'Chawanzi' }
+          expect(arr).to eq(['Alick'])
         end
       end
     end
