@@ -75,7 +75,7 @@ describe Enumerable do
       end
     end
 
-    context 'if block given' do
+    context 'if block' do
       context 'when self is an array' do
         it 'yields selected items' do
           arr = []

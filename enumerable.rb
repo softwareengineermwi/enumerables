@@ -16,7 +16,7 @@ module Enumerable
   end
 
   def my_select
-    return enum_for unless block_given
+    return enum_for unless block_given?
 
     arr = []
     my_each do |i|
@@ -43,20 +43,6 @@ module Enumerable
       end
     end
   end
-
-  # to_a
-  # if block_given?
-  #   my_each { |i| return false unless yield(i) == true }
-  # elsif args.nil?
-  #   my_each { |i| return false if i == false || i.nil? }
-  # elsif args.instance_of?(Class)
-  #   my_each { |i| return false if i.class.superclass != args && i.class != args }
-  # elsif args.instance_of?(Regexp)
-  #   my_each { |i| return false unless args.match(i) }
-  # else
-  #   my_each { |i| return false if i != args }
-  # end
-  # true
 
   def my_any?(args = nil)
     to_a
